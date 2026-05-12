@@ -44,6 +44,28 @@
         }
         .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+
+        /* 系統狀態警告橫幅 */
+        .alert-banner {
+            background-color: #fff8e1;
+            border: 1px solid #ffe082;
+            color: #b08d00;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+        /* 暫時禁用的按鈕狀態 */
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none;
+        }
         
         /* 下載按鈕區 */
         .download-grid {
@@ -131,15 +153,22 @@
         <h1><span class="c-blue">🪖 替代役入營小幫手</span> <span class="c-yellow">・</span> <span class="c-green">文件打包機 🧰</span></h1>
         <p>一鍵統整考古題與個人文件，助你安心入營！<br>請選擇你的作業系統下載對應版本：</p>
         
+        <div class="alert-banner">
+            <span style="font-size: 1.2rem;">⚠️</span>
+            <span><strong>macOS 版本趕工中：</strong>目前 Mac 版尚未就緒。預計今天（5 月 12 日）跟室友借到蘋果電腦完成編譯後就會火速上架，請拿 Mac 的弟兄稍候片刻！</span>
+        </div>
+        
         <div class="download-grid">
             <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0/military_doc_prep_helper_win.zip" class="btn-download">
                 🪟 Windows 版 (.exe)
                 <span>解壓縮後直接執行</span>
             </a>
-            <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0//military_doc_prep_helper_mac.zip" class="btn-download" style="background-color: #333;">
+            
+            <a href="#" class="btn-download btn-disabled" style="background-color: #333;">
                 🍎 macOS 版 (.app)
-                <span>支援 Intel & Apple Silicon</span>
+                <span>趕工中，預計 5/12 上架</span>
             </a>
+            
             <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0/military_doc_prep_helper_linux.zip" class="btn-download" style="background-color: #f4683c;">
                 🐧 Linux 版
                 <span>適用 Ubuntu / Debian 等</span>
