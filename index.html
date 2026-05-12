@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替代役入營小幫手・文件打包機</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪖</text></svg>">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #202124;
+            --text-muted: #5f6368;
+            --primary: #1a73e8;
+            --primary-hover: #1557b0;
+            --border: #dadce0;
+            --blue: #4285F4;
+            --yellow: #FBBC05;
+            --green: #34A853;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            margin: 40px 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+        
+        /* 下載按鈕區 */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn-download {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(26, 115, 232, 0.2);
+        }
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        .btn-download span { font-size: 0.85rem; font-weight: normal; margin-top: 5px; opacity: 0.9; }
+
+        /* 教學分頁區 */
+        .tutorial-card {
+            background: var(--card-bg);
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .tutorial-tabs {
+            display: flex;
+            background: #f1f3f4;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        .tutorial-content {
+            padding: 30px 40px;
+            display: none;
+        }
+        .tutorial-content.active { display: block; }
+
+        .step { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .step-number {
+            background-color: var(--bg-color);
+            color: var(--primary);
+            font-weight: bold;
+            border-radius: 50%;
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 15px; flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+        
+        .footer { text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.95rem; font-weight: bold; }
+        .c-blue { color: var(--blue); } .c-yellow { color: var(--yellow); } .c-green { color: var(--green); }
+        code { background: #f1f3f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hero">
+        <h1><span class="c-blue">🪖 替代役入營小幫手</span> <span class="c-yellow">・</span> <span class="c-green">文件打包機 🧰</span></h1>
+        <p>一鍵統整考古題與個人文件，助你安心入營！<br>請選擇你的作業系統下載對應版本：</p>
+        
+        <div class="download-grid">
+            <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0/military_doc_prep_helper_win.zip" class="btn-download">
+                🪟 Windows 版 (.exe)
+                <span>解壓縮後直接執行</span>
+            </a>
+            <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0//military_doc_prep_helper_mac.zip" class="btn-download" style="background-color: #333;">
+                🍎 macOS 版 (.app)
+                <span>支援 Intel & Apple Silicon</span>
+            </a>
+            <a href="https://github.com/1011cychien/military-doc-prep-helper/releases/download/v1.0.0/military_doc_prep_helper_linux.zip" class="btn-download" style="background-color: #f4683c;">
+                🐧 Linux 版
+                <span>適用 Ubuntu / Debian 等</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="tutorial-card">
+        <div class="tutorial-tabs">
+            <button class="tab-btn active" onclick="showTutorial('win', this)">🪟 Windows</button>
+            <button class="tab-btn" onclick="showTutorial('mac', this)">🍎 macOS</button>
+            <button class="tab-btn" onclick="showTutorial('linux', this)">🐧 Linux</button>
+        </div>
+
+        <div id="tutorial-win" class="tutorial-content active">
+            <div class="step"><div class="step-number">1</div><div>下載並<b>解壓縮</b> zip 檔案，請勿直接在壓縮檔內執行。</div></div>
+            <div class="step"><div class="step-number">2</div><div>執行 <code>military_doc_prep_helper.exe</code>。若出現安全性警告，請點選「仍要執行」。</div></div>
+            <div class="step"><div class="step-number">3</div><div>約 2 秒後，瀏覽器將自動開啟操作介面，即可開始打包。</div></div>
+        </div>
+
+        <div id="tutorial-mac" class="tutorial-content">
+            <div class="step"><div class="step-number">1</div><div>下載並解壓縮，將 App 拖移至應用程式資料夾或桌面。</div></div>
+            <div class="step"><div class="step-number">2</div><div>初次執行請對檔案按<b>「右鍵 > 開啟」</b>，以跳過未識別開發者檢查。</div></div>
+            <div class="step"><div class="step-number">3</div><div>執行後瀏覽器將自動開啟，若無反應請手動前往 <code>http://127.0.0.1:5000</code>。</div></div>
+        </div>
+
+        <div id="tutorial-linux" class="tutorial-content">
+            <div class="step"><div class="step-number">1</div><div>下載並解壓縮 zip。</div></div>
+            <div class="step"><div class="step-number">2</div><div>開啟終端機，進入該資料夾並賦予權限：<code>chmod +x military_doc_prep_helper</code>。</div></div>
+            <div class="step"><div class="step-number">3</div><div>輸入 <code>./military_doc_prep_helper</code> 啟動，隨後於瀏覽器操作。</div></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Credits: 273T 簡老師</p>
+        <div class="counter">
+            <img src="https://visitor-badge.laobi.icu/badge?page_id=cychien.successhill_helper" alt="訪客人數">
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTutorial(os, btn) {
+        // 切換按鈕狀態
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // 切換內容顯示
+        document.querySelectorAll('.tutorial-content').forEach(c => c.classList.remove('active'));
+        document.getElementById('tutorial-' + os).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
